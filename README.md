@@ -1,6 +1,6 @@
 # Problem: Active Shooter Response Time
 
-- It can take 10-20 minutes for help to arrive at an active shooter event.
+- It can take 10-20 minutes for the authorities to arrive at an active shooter incident.
 
 https://www.guard911.com/the-difference-between-active-shooter-notification-time-response-time/
 
@@ -26,8 +26,12 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Kubernetes
 
+- VGG Image Annotator
+
 - AWS
 
 # Resources
+
+https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=segmentation&r=false&c=%2Fm%2F0gxl3
 
 https://towardsdatascience.com/plug-and-play-object-detection-code-in-5-simple-steps-f1975804373e
