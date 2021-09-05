@@ -30,8 +30,18 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - AWS
 
-# Resources
+# Project Steps
 
-https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=segmentation&r=false&c=%2Fm%2F0gxl3
+## 1. Set up Notebook
 
-https://towardsdatascience.com/plug-and-play-object-detection-code-in-5-simple-steps-f1975804373e
+```
+% python -m venv weapon-detection                 # create virtual environment
+% source weapon-detection/bin/activate            # activate virtual environment
+% python -m pip install --upgrade pip             # upgrade pip version
+% pip install ipykernel                           # install ipykernel
+% python -m ipykernel install --user --name=tfwd  # add virtual environment as a kernel
+```
+
+## 2. Collect and Store Image Data
+
+
