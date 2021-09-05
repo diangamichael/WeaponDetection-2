@@ -35,11 +35,11 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 ## 1. Set up Notebook
 
 ```
-% python -m venv weapon-detection                 # create virtual environment
-% source weapon-detection/bin/activate            # activate virtual environment
-% python -m pip install --upgrade pip             # upgrade pip version
-% pip install ipykernel                           # install ipykernel
-% python -m ipykernel install --user --name=tfwd  # add virtual environment as a kernel
+% python -m venv weapon-detection                             # create virtual environment
+% source weapon-detection/bin/activate                        # activate virtual environment
+% python -m pip install --upgrade pip                         # upgrade pip version
+% pip install ipykernel                                       # install ipykernel
+% python -m ipykernel install --user --name=weapon-detection  # add virtual environment as a kernel
 ```
 
 ## 2. Collect and Store Image Data
