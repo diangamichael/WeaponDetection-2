@@ -78,6 +78,8 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 
 ![result 1](READMEImages/result1.png)
 
+![result 2](READMEImages/result2.png)
+
 ## 7. Deploy Data Collection/Storage to Airflow (running in a Docker container)
 
 ## 8. Deploy model as a Flask/React app to Docker and Kubernetes
