@@ -28,7 +28,7 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Kubernetes
 
-- VGG Image Annotator
+- LabelImg: https://github.com/tzutalin/labelImg
 
 # Project Steps
 
@@ -50,13 +50,23 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Download URL's using the links from S3
 
-- Store images in S3
-
 ## 3. Annotate images
 
-- Annotate by hand all the Gun images stored in S3
+- copy all the images from the ImageCollection folder to ML folder
+
+`% cp -a ImageCollection/images/*.jpeg  ML/images`
+
+- Remove duplicate/unwanted images
+
+- Annotate by hand all the images using LabelImg
 
 ## 4. Train Model with annotated images
+
+- Get model from TensorFlow 2 Detection Model Zoo (SSD MobileNet V2 FPNLite 320x320)
+
+This model will pre-process (resize, augmentation) our pictures and do post-processing for us.
+
+- Install TensorFlow Object Detection API
 
 ## 5. Test Model
 
@@ -64,3 +74,8 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 ## 7. Deploy model as a Flask/React app to Docker and Kubernetes
 
+# Sources/Resources
+
+#### Tensorflow Object Detection in 5 Hours with Python | Full Course with 3 Projects
+
+https://www.youtube.com/watch?v=yqkISICHH-U&list=PLFtcKdp22eiITi1D7Kxoba9ZLyaYsRLK8&index=3&t=6116s
