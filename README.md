@@ -89,3 +89,7 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 #### Tensorflow Object Detection in 5 Hours with Python | Full Course with 3 Projects
 
 https://www.youtube.com/watch?v=yqkISICHH-U&list=PLFtcKdp22eiITi1D7Kxoba9ZLyaYsRLK8&index=3&t=6116s
+
+#### Flask Documentation
+
+https://flask.palletsprojects.com/en/2.0.x/patterns/fileuploads/
