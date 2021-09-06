@@ -2,3 +2,6 @@ weap-detect
 .ipynb_checkpoints
 .env
 images
+.DS_Store
+test
+train
