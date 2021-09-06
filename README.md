@@ -68,11 +68,19 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 
 - Install TensorFlow Object Detection API
 
-## 5. Test Model
+## 5. Freeze/Save Model and Export to TFJS For Web App deployment
 
-## 6. Deploy Data Collection/Storage to Airflow (running in a Docker container)
+## 6. Test Model
 
-## 7. Deploy model as a Flask/React app to Docker and Kubernetes
+### V1 Testing Results Using images model had never seen:
+
+![result 0](READMEImages/result0.png)
+
+![result 1](READMEImages/result1.png)
+
+## 7. Deploy Data Collection/Storage to Airflow (running in a Docker container)
+
+## 8. Deploy model as a Flask/React app to Docker and Kubernetes
 
 # Sources/Resources
 
