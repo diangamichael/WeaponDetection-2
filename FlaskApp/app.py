@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, request, send_from_directory
 from werkzeug.utils import secure_filename
 import os
 import tensorflow as tf
@@ -54,7 +54,7 @@ def run_model(file_name):
         max_boxes_to_draw=5,min_score_thresh=.8, agnostic_mode=False)
     plt.rcParams["figure.figsize"] = (20,10)
     plt.imshow(cv2.cvtColor(image_np_with_detections, cv2.COLOR_BGR2RGB))
-    plt.savefig("result.png")
+    plt.savefig("upload/result.png")
 
 '''
 -------------------------- END OF MODEL CODE SECTION --------------------------
@@ -87,17 +87,12 @@ def upload_file():
         if 'imageUpload' not in request.files:
             return {'message': 'NO IMAGE RECIEVED'}
         file = request.files['imageUpload']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        # if file.filename == '':
-        #     flash('No selected file')
-        #     return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             run_model(filename)
             # return redirect(url_for('download_file', name=filename))
-            return {'message': 'Success!'}
+            return send_from_directory(app.config['UPLOAD_FOLDER'], 'result.png', as_attachment=True)
     return {'message': 'DEFAULT'}
 
 '''
