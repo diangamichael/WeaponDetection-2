@@ -20,15 +20,15 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Python
 
-- SQL
+- AWS S3
+
+- Airflow
 
 - Docker
 
 - Kubernetes
 
 - VGG Image Annotator
-
-- AWS
 
 # Project Steps
 
@@ -44,4 +44,23 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 ## 2. Collect and Store Image Data
 
+- Pull image urls from Google API
+
+- Store URL's in S3
+
+- Download URL's using the links from S3
+
+- Store images in S3
+
+## 3. Annotate images
+
+- Annotate by hand all the Gun images stored in S3
+
+## 4. Train Model with annotated images
+
+## 5. Test Model
+
+## 6. Deploy Data Collection/Storage to Airflow (running in a Docker container)
+
+## 7. Deploy model as a Flask/React app to Docker and Kubernetes
 
