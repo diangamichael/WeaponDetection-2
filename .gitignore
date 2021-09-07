@@ -6,3 +6,4 @@ images
 test
 train
 pipeline-venv
+DataPipeline/data
