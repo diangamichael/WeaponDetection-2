@@ -5,9 +5,10 @@ import {useState} from 'react'
 function App() {
 
   const [file, setFile] = useState(null)
-  const [img, setImg] = useState(null)
+  const [img, setImg] = useState(false)
 
   const handleChange = event => {
+    setImg(false)
     setFile(event.target.files[0])
   }
 
@@ -16,7 +17,9 @@ function App() {
     formData.append("imageUpload", file, file.name)
     try {
       const res = await axios.post('upload_file', formData)
-      setImg(res.data)
+      if (res.data.result === 'success') {
+        setImg(true)
+      }
     } catch(er) { console.log(er)}
   }
 
@@ -32,9 +35,8 @@ function App() {
         {img ? 
           <div>
             <p>Here is an image</p>
-            <img src={img}/> 
+            <img src={'https://afarhidevgeneraldata.s3.amazonaws.com/latest_result.png'}/> 
           </div>
-          
         : ''}
       </div>
     </div>

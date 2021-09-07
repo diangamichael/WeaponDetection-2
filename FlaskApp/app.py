@@ -1,6 +1,7 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 import os
+import uuid
 import tensorflow as tf
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as viz_utils
@@ -9,6 +10,11 @@ from object_detection.utils import config_util
 import cv2 
 import numpy as np
 from matplotlib import pyplot as plt
+import requests
+import json
+import boto3
+from dotenv import load_dotenv
+load_dotenv()
 
 '''
 -------------------------- MODEL CODE SECTION --------------------------
@@ -54,7 +60,10 @@ def run_model(file_name):
         max_boxes_to_draw=5,min_score_thresh=.8, agnostic_mode=False)
     plt.rcParams["figure.figsize"] = (20,10)
     plt.imshow(cv2.cvtColor(image_np_with_detections, cv2.COLOR_BGR2RGB))
-    plt.savefig("upload/result.png")
+    image_name = str(uuid.uuid1()) + '.png'
+    plt.savefig(f"upload/{image_name}")
+    return image_name
+
 
 '''
 -------------------------- END OF MODEL CODE SECTION --------------------------
@@ -75,6 +84,20 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def dump_result_image_to_s3(image_name: str):
+    s3 = boto3.resource(
+        's3',
+        aws_access_key_id=os.getenv('AWS_ACCESS_KEY'), 
+        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+    )
+    s3.meta.client.upload_file(
+        f'upload/{image_name}', 
+        'afarhidevgeneraldata', 
+        'latest_result.png', 
+        ExtraArgs={'ACL': 'public-read'}
+    )
+
+
 @app.route('/hello', methods=['GET'])
 def hello():
     return {"message": "HELLO FROM FLASK"}
@@ -90,9 +113,9 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            run_model(filename)
-            # return redirect(url_for('download_file', name=filename))
-            return send_from_directory(app.config['UPLOAD_FOLDER'], 'result.png', as_attachment=True)
+            image_name = run_model(filename)
+            dump_result_image_to_s3(image_name)
+            return {'result': 'success'}
     return {'message': 'DEFAULT'}
 
 '''
