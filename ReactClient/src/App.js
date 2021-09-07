@@ -3,12 +3,14 @@ import axios from 'axios'
 import {useState} from 'react'
 import NavigationBar from './NavigationBar'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
 
 function App() {
 
   const [file, setFile] = useState(null)
   const [imageId, setImageId] = useState('')
   const [renderImage, setRenderImage] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = event => {
     setRenderImage(false)
@@ -16,6 +18,7 @@ function App() {
   }
 
   const handleSubmit = async() => {
+    setLoading(true)
     const formData = new FormData()
     formData.append("imageUpload", file, file.name)
     try {
@@ -23,6 +26,7 @@ function App() {
       if (res.data.result === 'success') {
         setImageId(res.data.imageId)
         setRenderImage(true)
+        setLoading(false)
       }
     } catch(er) { console.log(er)}
   }
@@ -34,10 +38,18 @@ function App() {
         <input type="file" onChange={handleChange} />
         <br></br>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>{' '}
-        {/* <button onClick={handleSubmit}>
-          Upload!
-        </button> */}
       </div>
+      {
+        loading ? 
+        <div id='loading-spinner'>
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+        : null
+      }
+      
+      
       <div>
         {renderImage ? 
           <div>
