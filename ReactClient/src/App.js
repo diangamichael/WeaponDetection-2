@@ -1,4 +1,3 @@
-import './App.css'
 import axios from 'axios'
 import {useState} from 'react'
 import NavigationBar from './NavigationBar'
@@ -37,24 +36,23 @@ function App() {
       <div id='upload-form'>
         <input type="file" onChange={handleChange} />
         <br></br>
-        <Button variant="primary" onClick={handleSubmit}>Submit</Button>{' '}
+        <Button variant="primary" onClick={handleSubmit}>Analyze</Button>{' '}
       </div>
       {
         loading ? 
         <div id='loading-spinner'>
+          <h1>Analyzing...</h1>
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         </div>
         : null
       }
-      
-      
       <div>
         {renderImage ? 
-          <div>
-            <p>Here is an image</p>
-            <img src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
+          <div id='result-div'>
+            <h4>Analysis Complete</h4>
+            <img id='result-image' src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
           </div>
         : ''}
       </div>

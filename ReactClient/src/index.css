@@ -9,7 +9,7 @@ body {
 
 #upload-form {
   background-color: rgb(252, 252, 252);
-  margin-top: 10vh;
+  margin-top: 5vh;
   border: .5px solid rgb(192, 192, 192);
   border-radius: 5px;
   padding: 3rem;
@@ -19,4 +19,25 @@ body {
   margin-right: 30vw;
   display: flex;
   flex-direction: column;
+}
+
+#loading-spinner {
+  margin-top: 10vh;
+  margin-left: 50vw;
+  margin-right: 50vw;
+}
+
+#result-div {
+  margin-left: 30vw;
+  margin-right: 30vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#result-image {
+  border: .5px solid rgb(192, 192, 192);
+  border-radius: 5px;
+  width: 50vw;
+  height: 30vw;
 }
