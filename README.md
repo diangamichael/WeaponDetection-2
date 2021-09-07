@@ -84,6 +84,10 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 
 ## 8. Deploy model as a Flask/React app to Docker and Kubernetes
 
+### View of Web App
+
+![result 3](READMEImages/result3.png)
+
 # Sources/Resources
 
 #### Tensorflow Object Detection in 5 Hours with Python | Full Course with 3 Projects
