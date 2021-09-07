@@ -30,6 +30,14 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - LabelImg: https://github.com/tzutalin/labelImg
 
+# Application Overview
+
+![result 4](READMEImages/result4.png)
+
+# Data Pipeline Overview
+
+![result 5](READMEImages/result5.png)
+
 # Project Steps
 
 ## 1. Set up Notebook
