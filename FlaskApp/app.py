@@ -93,7 +93,7 @@ def dump_result_image_to_s3(image_name: str):
     s3.meta.client.upload_file(
         f'upload/{image_name}', 
         'afarhidevgeneraldata', 
-        'latest_result.png', 
+        f'latest_result_{image_name}', 
         ExtraArgs={'ACL': 'public-read'}
     )
 
@@ -115,7 +115,7 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             image_name = run_model(filename)
             dump_result_image_to_s3(image_name)
-            return {'result': 'success'}
+            return {'result': 'success', 'imageId': image_name}
     return {'message': 'DEFAULT'}
 
 '''
