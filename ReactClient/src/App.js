@@ -1,6 +1,8 @@
 import './App.css'
 import axios from 'axios'
 import {useState} from 'react'
+import NavigationBar from './NavigationBar'
+import Button from 'react-bootstrap/Button'
 
 function App() {
 
@@ -27,11 +29,14 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <NavigationBar />
+      <div id='upload-form'>
         <input type="file" onChange={handleChange} />
-        <button onClick={handleSubmit}>
+        <br></br>
+        <Button variant="primary" onClick={handleSubmit}>Submit</Button>{' '}
+        {/* <button onClick={handleSubmit}>
           Upload!
-        </button>
+        </button> */}
       </div>
       <div>
         {renderImage ? 
