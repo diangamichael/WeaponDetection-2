@@ -37,7 +37,7 @@ function App() {
         {renderImage ? 
           <div>
             <p>Here is an image</p>
-            <img src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}.png`}/> 
+            <img src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
           </div>
         : ''}
       </div>

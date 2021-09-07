@@ -10,8 +10,6 @@ from object_detection.utils import config_util
 import cv2 
 import numpy as np
 from matplotlib import pyplot as plt
-import requests
-import json
 import boto3
 from dotenv import load_dotenv
 load_dotenv()
