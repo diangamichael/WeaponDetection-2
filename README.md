@@ -8,9 +8,9 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Develop an AI model that can detect someone with a weapon and notify the authorities instantly.
 
-# Link to application:
+# Link to Application: http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
 
-http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
+![result 3](READMEImages/result3.png)
 
 # Project Outline
 
@@ -22,33 +22,11 @@ http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
 
 # Tools:
 
-- Python
-
-- TensorFlow
-
-- Flask
-
-- React
-
-- AWS S3
-
-- AWS Lightsail
-
-- Airflow
-
-- Docker
-
-- LabelImg
+![tools](READMEImages/tools.png)
 
 # Application Overview
 
 ![result 4](READMEImages/result4.png)
-
-# Data Pipeline Overview
-
-![result 5](READMEImages/result5.png)
-
-![data pipeline](READMEImages/datapipeline.png)
 
 # Project Steps
 
@@ -69,6 +47,12 @@ http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
 - Store URL's in S3
 
 - Download URL's using the links from S3
+
+### Data Pipeline Overview
+
+![result 5](READMEImages/result5.png)
+
+![data pipeline](READMEImages/datapipeline.png)
 
 ## 3. Annotate images | This is done manually using LabelImg
 
@@ -102,11 +86,7 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 
 ![result 2](READMEImages/result2.png)
 
-## 8. Deploy model as a Flask/React app to Docker and Kubernetes
-
-### View of Web App
-
-![result 3](READMEImages/result3.png)
+## 8. Deploy model using Flask, React, Docker, AWS Lightsail and AWS S3
 
 # Sources/Resources
 
