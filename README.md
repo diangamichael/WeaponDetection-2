@@ -76,6 +76,8 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Annotate by hand all the images using LabelImg
 
+cd into labelimg on computer and run `python lablelimg.py`
+
 ## 4. Train Model with annotated images | This is done in Jupyter Lab
 
 - Get model from TensorFlow 2 Detection Model Zoo (SSD MobileNet V2 FPNLite 320x320)
