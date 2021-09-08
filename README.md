@@ -118,3 +118,7 @@ https://flask.palletsprojects.com/en/2.0.x/patterns/fileuploads/
 #### LabelImg
 
 https://github.com/tzutalin/labelImg
+
+#### Deployment
+
+https://aws.amazon.com/getting-started/hands-on/serve-a-flask-app/
