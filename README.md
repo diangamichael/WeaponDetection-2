@@ -20,6 +20,12 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Python
 
+- TensorFlow
+
+- Flask
+
+- React
+
 - AWS S3
 
 - Airflow
@@ -28,7 +34,7 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Kubernetes
 
-- LabelImg: https://github.com/tzutalin/labelImg
+- LabelImg
 
 # Application Overview
 
@@ -37,6 +43,8 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 # Data Pipeline Overview
 
 ![result 5](READMEImages/result5.png)
+
+![data pipeline](READMEImages/datapipeline.png)
 
 # Project Steps
 
@@ -50,7 +58,7 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 % python -m ipykernel install --user --name=weapon-detection  # add virtual environment as a kernel
 ```
 
-## 2. Collect and Store Image Data
+## 2. Collect and Store Image Data | This is all automated using Airflow
 
 - Pull image urls from Google API
 
@@ -58,7 +66,7 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Download URL's using the links from S3
 
-## 3. Annotate images
+## 3. Annotate images | This is done manually using LabelImg
 
 - copy all the images from the ImageCollection folder to ML folder
 
@@ -68,7 +76,7 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Annotate by hand all the images using LabelImg
 
-## 4. Train Model with annotated images
+## 4. Train Model with annotated images | This is done in Jupyter Lab
 
 - Get model from TensorFlow 2 Detection Model Zoo (SSD MobileNet V2 FPNLite 320x320)
 
@@ -78,17 +86,15 @@ This model will pre-process (resize, augmentation) our pictures and do post-proc
 
 ## 5. Freeze/Save Model and Export to TFJS For Web App deployment
 
-## 6. Test Model
+## 6. Test Model | Initial testing done in Jupyter Lab
 
-### V1 Testing Results Using images model had never seen:
+### Round 1 of testing in Jupyter Lab results:
 
 ![result 0](READMEImages/result0.png)
 
 ![result 1](READMEImages/result1.png)
 
 ![result 2](READMEImages/result2.png)
-
-## 7. Deploy Data Collection/Storage to Airflow (running in a Docker container)
 
 ## 8. Deploy model as a Flask/React app to Docker and Kubernetes
 
@@ -105,3 +111,8 @@ https://www.youtube.com/watch?v=yqkISICHH-U&list=PLFtcKdp22eiITi1D7Kxoba9ZLyaYsR
 #### Flask Documentation
 
 https://flask.palletsprojects.com/en/2.0.x/patterns/fileuploads/
+
+
+#### LabelImg
+
+https://github.com/tzutalin/labelImg

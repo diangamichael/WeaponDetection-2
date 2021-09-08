@@ -5,3 +5,5 @@ images
 .DS_Store
 test
 train
+pipeline-venv
+DataPipeline/data
