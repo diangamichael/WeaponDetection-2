@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 from weapon_detection import WeaponDetector
 import os
@@ -49,7 +49,9 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             image_name = weapon_detector.detect_weapon(filename)
             dump_result_image_to_s3(image_name)
-            return {'result': 'success', 'imageId': image_name}
+            response = jsonify({'result': 'success', 'imageId': image_name})
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
     return {'message': 'DEFAULT'}
 
 

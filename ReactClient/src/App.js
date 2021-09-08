@@ -17,11 +17,12 @@ function App() {
   }
 
   const handleSubmit = async() => {
+    setRenderImage(false)
     setLoading(true)
     const formData = new FormData()
     formData.append("imageUpload", file, file.name)
     try {
-      const res = await axios.post('upload_file', formData)
+      const res = await axios.post('https://flask-service.e0db4cmami9tu.us-east-1.cs.amazonlightsail.com/upload_file', formData)
       if (res.data.result === 'success') {
         setImageId(res.data.imageId)
         setRenderImage(true)
@@ -41,7 +42,7 @@ function App() {
       {
         loading ? 
         <div id='loading-spinner'>
-          <h1>Analyzing...</h1>
+          <h1 id='analysis-header'>Analyzing...</h1>
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>

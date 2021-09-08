@@ -8,6 +8,10 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - Develop an AI model that can detect someone with a weapon and notify the authorities instantly.
 
+# Link to application:
+
+http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
+
 # Project Outline
 
 1. Collect/clean/store image data
@@ -28,11 +32,11 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 - AWS S3
 
+- AWS Lightsail
+
 - Airflow
 
 - Docker
-
-- Kubernetes
 
 - LabelImg
 
