@@ -10,9 +10,11 @@ body {
 #upload-form {
   background-color: rgb(252, 252, 252);
   margin-top: 5vh;
-  border: .5px solid rgb(192, 192, 192);
+  margin-bottom: 5vh;
   border-radius: 5px;
-  padding: 3rem;
+  -webkit-box-shadow: 0px 0px 15px -3px #141414; 
+  box-shadow: 0px 0px 15px -3px #141414;
+  padding: 2.5rem;
   width: 40vw;
   max-width: 50vw;
   margin-left: 30vw;
@@ -31,10 +33,6 @@ body {
   margin-right: 50vw;
 }
 
-#analysis-header {
-  margin-bottom: 2rem;
-}
-
 #result-div {
   margin-left: 30vw;
   margin-right: 30vw;
@@ -44,8 +42,9 @@ body {
 }
 
 #result-image {
-  border: .5px solid rgb(192, 192, 192);
+  -webkit-box-shadow: 0px 0px 15px -3px #141414; 
+  box-shadow: 0px 0px 15px -3px #141414;
   border-radius: 5px;
-  width: 50vw;
-  height: 30vw;
+  width: 48vw;
+  height: 28vw;
 }

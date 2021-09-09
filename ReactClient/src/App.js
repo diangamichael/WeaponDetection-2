@@ -11,16 +11,19 @@ function App() {
   const [renderImage, setRenderImage] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  // checks if file was uploaded
   const fileWasUploaded = () => {
     if (file === null) return false
     return true
   }
 
+  // sets file in state
   const handleChange = event => {
     setRenderImage(false)
     setFile(event.target.files[0])
   }
 
+  // submits file to api
   const handleSubmit = async() => {
     // make sure file was chosen
     if (!fileWasUploaded()) return
@@ -42,6 +45,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       <div id='upload-form'>
+        <h5>Upload an image to analyze</h5>
         <input type="file" onChange={handleChange} />
         <br></br>
         <Button variant="primary" onClick={handleSubmit}>Analyze</Button>{' '}
@@ -59,7 +63,6 @@ function App() {
       <div>
         {renderImage ? 
           <div id='result-div'>
-            <h4>Analysis Complete</h4>
             <img alt='result' id='result-image' src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
           </div>
         : ''}
