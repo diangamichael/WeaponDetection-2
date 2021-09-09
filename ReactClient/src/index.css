@@ -48,3 +48,11 @@ body {
   width: 48vw;
   height: 28vw;
 }
+
+#info-main-div {
+  margin-top: 5vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  display: flex;
+  flex-direction: column;
+}
