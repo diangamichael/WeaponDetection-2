@@ -1,7 +1,6 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
-// import NavDropdown from 'react-bootstrap/NavDropdown'
 import Icon from './AIIcon.png'
 
 
@@ -9,7 +8,7 @@ export default function NavigationBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                 <img
                     id='icon'
                     alt=""
@@ -19,7 +18,7 @@ export default function NavigationBar() {
                     className="d-inline-block align-top"
                 />{' '}
                 </Navbar.Brand>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     Weapon Detection
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -27,7 +26,7 @@ export default function NavigationBar() {
                 <Nav className="me-auto">
                 </Nav>
                 <Nav>
-                <Nav.Link href="#deets">How does it work?</Nav.Link>
+                    <Nav.Link href="/info">How does it work?</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
