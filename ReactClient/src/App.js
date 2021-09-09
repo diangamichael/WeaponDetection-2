@@ -11,12 +11,19 @@ function App() {
   const [renderImage, setRenderImage] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  const fileWasUploaded = () => {
+    if (file === null) return false
+    return true
+  }
+
   const handleChange = event => {
     setRenderImage(false)
     setFile(event.target.files[0])
   }
 
   const handleSubmit = async() => {
+    // make sure file was chosen
+    if (!fileWasUploaded()) return
     setRenderImage(false)
     setLoading(true)
     const formData = new FormData()
@@ -53,7 +60,7 @@ function App() {
         {renderImage ? 
           <div id='result-div'>
             <h4>Analysis Complete</h4>
-            <img id='result-image' src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
+            <img alt='result' id='result-image' src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
           </div>
         : ''}
       </div>
