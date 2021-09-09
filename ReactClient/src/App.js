@@ -6,16 +6,11 @@ import Spinner from 'react-bootstrap/Spinner'
 
 function App() {
 
+  // state objects
   const [file, setFile] = useState(null)
   const [imageId, setImageId] = useState('')
   const [renderImage, setRenderImage] = useState(false)
   const [loading, setLoading] = useState(false)
-
-  // checks if file was uploaded
-  const fileWasUploaded = () => {
-    if (file === null) return false
-    return true
-  }
 
   // sets file in state
   const handleChange = event => {
@@ -25,8 +20,8 @@ function App() {
 
   // submits file to api
   const handleSubmit = async() => {
-    // make sure file was chosen
-    if (!fileWasUploaded()) return
+    // make sure file was received by input
+    if (file === undefined) return
     setRenderImage(false)
     setLoading(true)
     const formData = new FormData()
@@ -34,6 +29,7 @@ function App() {
     try {
       const res = await axios.post('https://flask-service.e0db4cmami9tu.us-east-1.cs.amazonlightsail.com/upload_file', formData)
       if (res.data.result === 'success') {
+        // response will include id of result image to pull from s3 bucket
         setImageId(res.data.imageId)
         setRenderImage(true)
         setLoading(false)
@@ -52,20 +48,22 @@ function App() {
       </div>
       {
         loading ? 
-        <div id='loading-spinner'>
-          <h1 id='analysis-header'>Analyzing...</h1>
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
+          <div id='loading-spinner'>
+            <h1 id='analysis-header'>Analyzing...</h1>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
         : null
       }
       <div>
-        {renderImage ? 
+        {
+        renderImage ? 
           <div id='result-div'>
             <img alt='result' id='result-image' src={`https://afarhidevgeneraldata.s3.amazonaws.com/latest_result_${imageId}`}/> 
           </div>
-        : ''}
+        : null
+        }
       </div>
     </div>
   );
