@@ -21,7 +21,7 @@ function App() {
   // submits file to api
   const handleSubmit = async() => {
     // make sure file was received by input
-    if (file === undefined) return
+    if (file === undefined || file === null) return
     setRenderImage(false)
     setLoading(true)
     const formData = new FormData()
