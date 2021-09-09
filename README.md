@@ -7,8 +7,8 @@ https://www.guard911.com/the-difference-between-active-shooter-notification-time
 
 # Solution
 
-- Develop an AI model that can monitor sucurity cameras and instantly detect when a weapon is
-drawn and alert the authorities.
+- Develop an AI model that will monitor security cameras, instantly detect when a weapon is
+drawn, and alert the authorities.
 
 # Link to Application: http://weapon-detection-front-end.s3-website-us-east-1.amazonaws.com/
 
