@@ -60,7 +60,7 @@ drawn, and alert the authorities.
 
 - copy all the images from the ImageCollection folder to ML folder
 
-`% cp -a ImageCollection/images/*.jpeg  ML/images`
+![labelimg](READMEImages/labelimg.png)
 
 - Remove duplicate/unwanted images
 
@@ -70,9 +70,11 @@ cd into labelimg on computer and run `python lablelimg.py`
 
 ## 4. Train Model with annotated images | This is done in Jupyter Lab
 
+![training](READMEImages/training.png)
+
 - Get model from TensorFlow 2 Detection Model Zoo (SSD MobileNet V2 FPNLite 320x320)
 
-This model will pre-process (resize, augmentation) our pictures and do post-processing for us.
+This is a Feature Pyramid Network based model. This model will pre-process (resize, augmentation) our pictures and do post-processing for us.
 
 - Install TensorFlow Object Detection API
 
